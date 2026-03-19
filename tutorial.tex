@@ -1590,7 +1590,7 @@ SLM-GraphRAG系统采用分层架构设计,其整体架构如图\ref{fig:5archi}
 (1)数据接入模块。该模块是整个系统的入口,负责多源异构数据的统一接入与预处理。首先,数据获取功能支持用户上传文档文件(支持纯文本、Markdown、PDF等格式)或外部知识图谱(支持JSON、GraphML、CSV格式),系统对上传的数据类型进行验证,以保证格式正确且完整。其次,数据预处理功能根据需求对数据进行清洗、格式转换与标准化处理,包括文件类型转换、数据去重、分块等操作,从而保证数据的一致性和准确性。最后,数据传递功能将处理后的标准化文本块(包含唯一标识符与元数据)传递至索引构建模块,为后续的知识图谱构建提供输入。此外,该模块支持增量更新与灵活的分块配置选项,以适应不同规模的数据接入需求。该模块工作流程如图\ref{fig:5data_ingest}所示。
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{pic/5pic数据接入模块.png}
+    \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{pic/5pic数据接入模块.png}
 \caption{SLM-GraphRAG数据接入模块流程图}
     \label{fig:5data_ingest}
 \end{figure}
@@ -1598,7 +1598,7 @@ SLM-GraphRAG系统采用分层架构设计,其整体架构如图\ref{fig:5archi}
 (2)索引构建模块。该模块是系统的核心处理单元之一,负责从非结构化文本中自动构建结构化知识图谱,实现本文第三章提出的验证优先图索引构建方法。首先,实体关系抽取功能利用前文第三章中设计的验证优先图索引构建方法,从文本中自动抽取实体与关系,构建初步的知识图谱结构。其次,图谱质量优化功能通过图数据去重合并优化算法对初步构建的图谱进行质量优化,生成低冗余、较高纯净度的知识图谱。最后,结构化输出功能将优化后的知识图谱转换为包含实体节点、关系边及其属性描述的结构化格式,为后续的智能检索提供数据支撑。该模块支持增量式更新、实体消歧与类型统一等关键特性,以提升知识图谱的可用性与一致性。该模块工作流程如图\ref{fig:5index_build}所示。
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{pic/5pic索引构建模块.png}
+    \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{pic/5pic索引构建模块.png}
 \caption{SLM-GraphRAG索引构建模块流程图}
     \label{fig:5index_build}
 \end{figure}
@@ -1606,7 +1606,7 @@ SLM-GraphRAG系统采用分层架构设计,其整体架构如图\ref{fig:5archi}
 (3)智能问答模块。该模块是系统实现智能问答的核心,负责理解用户查询、从知识图谱中检索相关知识并生成答案,实现本文第四章提出的查询语义引导的边感知增强检索方法(Semantic-Flow RAG)。首先,查询理解与映射功能接收用户的自然语言查询,利用前文第四章中设计的查询语义引导检索起点映射方法,从知识图谱中定位相关的检索起点。其次,知识检索与推理功能采用边感知增强的流式剪枝算法,识别关键关系路径并提取多维上下文信息,包括实体上下文、文本块上下文和关系上下文。再次,上下文融合与组织功能对检索到的多维上下文信息进行截断与整合,将关键关系路径与上下文进行结构化组织。最后,答案生成与标注功能调用语言模型,利用前文第四章中设计的基于关系路径的提示增强方法生成答案,该方法能够保留推理链路结构,生成具有一定逻辑性的回答,同时为答案标注推理路径与信息来源,以提升答案的可解释性与可信度。该模块能够为用户提供可追溯的智能问答服务,其工作流程如图\ref{fig:5smart_qa}所示。
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{pic/5pic智能问答模块.png}
+    \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{pic/5pic智能问答模块.png}
 \caption{SLM-GraphRAG智能问答模块流程图}
     \label{fig:5smart_qa}
 \end{figure}
@@ -1614,7 +1614,7 @@ SLM-GraphRAG系统采用分层架构设计,其整体架构如图\ref{fig:5archi}
 (4)图谱可视化模块。该模块负责将系统中的知识图谱数据通过图形化界面展示给用户,提供直观的浏览与检索功能。首先,数据获取功能从知识图谱中提取相关数据,包括实体类型、实体描述、关系信息等。其次,界面展示功能将获取到的数据通过分类列表、关系网络图等形式展现给用户,把抽象的图谱数据转化为直观的可视化元素,用户能够一目了然地浏览实体类别、搜索特定实体并查看详情。最后,交互查询功能支持类型驱动的分类展示与语义相似度搜索,用户可以根据实体类型进行分类浏览,或通过关键词进行模糊搜索,快速定位目标实体。该模块还提供关联关系可视化功能,以图形化方式展示实体间的关系网络,帮助用户更好地理解知识图谱的结构与内容。该模块工作流程如图\ref{fig:5graph_vis}所示。
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{pic/5pic可视化模块.png}
+    \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{pic/5pic可视化模块.png}
 \caption{SLM-GraphRAG可视化模块流程图}
     \label{fig:5graph_vis}
 \end{figure}
@@ -1624,7 +1624,7 @@ SLM-GraphRAG系统采用分层架构设计,其整体架构如图\ref{fig:5archi}
 该模块工作流程如图\ref{fig:5system_monitor}所示。
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{pic/5pic系统监控模块.png}
+    \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{pic/5pic_watch.png}
 \caption{SLM-GraphRAG系统监控模块流程图}
     \label{fig:5system_monitor}
 \end{figure}
