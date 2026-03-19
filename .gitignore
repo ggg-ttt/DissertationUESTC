@@ -1,0 +1,13 @@
+# 忽略所有文件
+*
+
+# 保留 gitignore 本身
+!/.gitignore
+
+# 保留根目录下的这两个文件
+!/tutorial.pdf
+!/tutorial.tex
+!/ref.bib
+# 保留 pic 文件夹及其全部内容
+!/pic/
+!/pic/**
